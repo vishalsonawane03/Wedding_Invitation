@@ -1,11 +1,14 @@
 import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import WeddingWebsite from './components/WeddingWebsite';
 
 function App() {
   return (
-    <div className="App">
-      <WeddingWebsite />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/invitation/:slug" element={<WeddingWebsite />} />
+      </Routes>
+    </Router>
   );
 }
 
