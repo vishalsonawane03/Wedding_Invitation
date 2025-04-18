@@ -22,41 +22,53 @@ function WeddingWebsite() {
 
 
       <section
-  id="home"
-  className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-800 to-yellow-900 relative overflow-hidden font-serif"
->
-  {/* Background Image */}
-  <div
-    className="absolute inset-0 bg-cover bg-center opacity-50"
-    style={{
-      backgroundImage:
-        'url("https://i.postimg.cc/YSCrWN77/Chat-GPT-Image-Apr-18-2025-02-51-08-PM.png")',
-    }}
-  ></div>
+        id="home"
+        className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-800 to-yellow-900 relative overflow-hidden font-serif"
+      >
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-50"
+          style={{
+            backgroundImage:
+              'url("https://i.postimg.cc/YSCrWN77/Chat-GPT-Image-Apr-18-2025-02-51-08-PM.png")',
+          }}
+        ></div>
 
-  {/* Logo at Top */}
-  <div className="absolute top-3 z-10">
-    <img
-      src="https://i.postimg.cc/ZYxwfXyJ/Chat-GPT-Image-Apr-18-2025-03-34-47-PM.png"
-      alt="Ganpati Logo"
-      className="h-20 md:h-26 object-contain transition-all duration-300"
-    />
-  </div>
+        {/* Logo at Top */}
+        <div className="absolute top-3 z-10">
+          <img
+            src="https://i.postimg.cc/ZYxwfXyJ/Chat-GPT-Image-Apr-18-2025-03-34-47-PM.png"
+            alt="Ganpati Logo"
+            className="h-24 md:h-30 object-contain transition-all duration-300"
+          />
+        </div>
 
-  {/* Text Content */}
-  <div className="flex flex-col justify-center items-center text-center relative z-10 h-full transform translate-y-20">
-  <h1 className="floral-text text-3xl md:text-4xl font-bold text-white mb-4">
-    Sachin 💖 Yashi
-  </h1>
-</div>
+        {/* Text Content */}
+        <div className="flex flex-col justify-center items-center text-center relative z-10 h-full transform translate-y-20">
+          <h1 className="floral-text text-3xl md:text-4xl font-bold text-white mb-4">
+            Sachin 💖 Yashi
+          </h1>
+        </div>
 
-</section>
+      </section>
 
 
       {/* Couple Information Section */}
-      <section className="py-16 bg-red-50">
+      <section className="py-10 bg-red-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">About The Couple</h2>
+          {/* <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">About The Couple</h2> */}
+          <div className="text-center mb-8">
+            {/* <img
+              src="https://i.postimg.cc/7ZWY8BdR/Chat-GPT-Image-Apr-18-2025-03-13-52-PM.png"
+              alt="Wedding Rings"
+              className="w-16 h-16 mx-auto mb-4"
+
+              --------We request your gracious presence with the family on the auspicious occasion of the Wedding of 
+            /> */}
+            <h1 className="text-2xl tracking-wide uppercase text-gray-800 mb-1">BE OUR GUEST</h1>    
+            <h3 className="text-xl tracking-wide uppercase text-gray-800 mb-0">WE EXPECT YOUR PRESENCE AT</h3>
+            <h3 className="text-xl tracking-wide uppercase text-gray-800">OUR WEDDING</h3>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Groom Information */}
@@ -67,14 +79,14 @@ function WeddingWebsite() {
                   alt="Sachin"
                   className="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-red-700"
                 />
+                <p className="text-gray-600 italic">Chi.</p>
                 <h3 className="text-2xl font-bold text-red-800">Sachin Kumar</h3>
-                <p className="text-gray-600 italic">The Groom</p>
               </div>
 
-              <div className="space-y-3 mb-6">
-                <p className="text-gray-700"><span className="font-semibold">Parents:</span> Mr. & Mrs. Sharma</p>
-                <p className="text-gray-700"><span className="font-semibold">Education:</span> MBA from Delhi University</p>
-                <p className="text-gray-700"><span className="font-semibold">Profession:</span> Software Engineer</p>
+              <div className="text-center mb-6 space-y-3 mb-6">
+                <p className="text-gray-700"> Mr. & Mrs. Sharma</p>
+                {/* <p className="text-gray-700"><span className="font-semibold">Education:</span> MBA from Delhi University</p>
+                <p className="text-gray-700"><span className="font-semibold">Profession:</span> Software Engineer</p> */}
               </div>
 
               <div className="flex justify-center space-x-4">
@@ -105,14 +117,14 @@ function WeddingWebsite() {
                   alt="Yashi"
                   className="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-red-700"
                 />
+                <p className="text-gray-600 italic">Chi. soi. ka.</p>
                 <h3 className="text-2xl font-bold text-red-800">Yashi Gupta</h3>
-                <p className="text-gray-600 italic">The Bride</p>
               </div>
 
-              <div className="space-y-3 mb-6">
-                <p className="text-gray-700"><span className="font-semibold">Parents:</span> Mr. & Mrs. Gupta</p>
-                <p className="text-gray-700"><span className="font-semibold">Education:</span> MSc in Computer Science</p>
-                <p className="text-gray-700"><span className="font-semibold">Profession:</span> UX Designer</p>
+              <div className="text-center mb-6 space-y-3 mb-6">
+                <p className="text-gray-700"> Mr. & Mrs. Gupta</p>
+                {/* <p className="text-gray-700"><span className="font-semibold">Education:</span> MSc in Computer Science</p>
+                <p className="text-gray-700"><span className="font-semibold">Profession:</span> UX Designer</p> */}
               </div>
 
               <div className="flex justify-center space-x-4">
