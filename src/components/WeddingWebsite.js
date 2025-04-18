@@ -1,20 +1,41 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import LoadingSpinner from './LoadingSpinner';
 
 function WeddingWebsite() {
-  const [isScrolled, setIsScrolled] = useState(false);
+
+  const { slug } = useParams();
+  const [data, setData] = useState(null);
+
+
+  // useEffect(() => {
+  //   fetch(`https://invitations.free.beeceptor.com/invitations/${slug}`)
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       console.log("Fetched JSON:", json);
+  //       setData(json);
+  //     })
+  //     .catch((err) => console.error('Failed to load invitation data', err));
+  // }, [slug]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    fetch(`${process.env.PUBLIC_URL}/data/${slug}.json`)
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch JSON');
+        return res.json();
+      })
+      .then((json) => {
+        console.log("Fetched JSON:", json);
+        setData(json);
+      })
+      .catch((err) => console.error("Fetch error:", err));
+  }, [slug]);
+  
+  if (!data) {
+    return <LoadingSpinner />;
+  }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  console.log("Data1:",data);
 
   return (
     <div className="font-serif">
@@ -29,15 +50,14 @@ function WeddingWebsite() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-50"
           style={{
-            backgroundImage:
-              'url("https://i.postimg.cc/YSCrWN77/Chat-GPT-Image-Apr-18-2025-02-51-08-PM.png")',
+            backgroundImage: `url(${data.backgroundImage})`,
           }}
         ></div>
 
         {/* Logo at Top */}
         <div className="absolute top-3 z-10">
           <img
-            src="https://i.postimg.cc/ZYxwfXyJ/Chat-GPT-Image-Apr-18-2025-03-34-47-PM.png"
+            src={data.logoImage}
             alt="Ganpati Logo"
             className="h-24 md:h-30 object-contain transition-all duration-300"
           />
@@ -46,7 +66,7 @@ function WeddingWebsite() {
         {/* Text Content */}
         <div className="flex flex-col justify-center items-center text-center relative z-10 h-full transform translate-y-20">
           <h1 className="floral-text text-3xl md:text-4xl font-bold text-white mb-4">
-            Sachin 💖 Yashi
+            {data.coupleName}
           </h1>
         </div>
 
@@ -233,70 +253,7 @@ function WeddingWebsite() {
         </div>
       </section>
 
-      {/* RSVP Section */}
-      <section id="rsvp" className="py-16 bg-gradient-to-b from-red-800 to-red-900 text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">RSVP</h2>
-          <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
-            <form className="space-y-4">
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                  Full Name
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="name"
-                  type="text"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="email"
-                  type="email"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="attending">
-                  Will you attend?
-                </label>
-                <select
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="attending"
-                >
-                  <option>Yes, I will attend</option>
-                  <option>Sorry, I cannot attend</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="guests">
-                  Number of Guests
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="guests"
-                  type="number"
-                  min="0"
-                  placeholder="0"
-                />
-              </div>
-              <div className="flex items-center justify-center">
-                <button
-                  className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-                  type="button"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
+      {/* <Rsvp/> */}
 
       {/* Countdown Section */}
       <section className="py-16 bg-red-50">
@@ -313,7 +270,7 @@ function WeddingWebsite() {
               rel="noopener noreferrer"
             >
               <button className="bg-red-700 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
-                Save to Google Calendar
+                Save the Date
               </button>
             </a>
           </div>
