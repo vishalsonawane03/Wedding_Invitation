@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Footer from './Footer';
+import Gallery from './Gallary';
+import GoogleCalender from './GoogleCalender';
 import LoadingSpinner from './LoadingSpinner';
 
 function WeddingWebsite() {
@@ -7,7 +10,7 @@ function WeddingWebsite() {
   const { slug } = useParams();
   const [data, setData] = useState(null);
 
-
+  
   // useEffect(() => {
   //   fetch(`https://invitations.free.beeceptor.com/invitations/${slug}`)
   //     .then((res) => res.json())
@@ -95,12 +98,12 @@ function WeddingWebsite() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-center mb-6">
                 <img
-                  src="https://picsum.photos/400/400"
+                  src={data.groomImg}
                   alt="Sachin"
                   className="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-red-700"
                 />
                 <p className="text-gray-600 italic">Chi.</p>
-                <h3 className="text-2xl font-bold text-red-800">Sachin Kumar</h3>
+                <h3 className="text-2xl font-bold text-red-800">{data.groomName}</h3>
               </div>
 
               <div className="text-center mb-6 space-y-3 mb-6">
@@ -133,12 +136,12 @@ function WeddingWebsite() {
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-center mb-6">
                 <img
-                  src="https://picsum.photos/401/401"
+                  src={data.brideImg}
                   alt="Yashi"
                   className="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-red-700"
                 />
                 <p className="text-gray-600 italic">Chi. soi. ka.</p>
-                <h3 className="text-2xl font-bold text-red-800">Yashi Gupta</h3>
+                <h3 className="text-2xl font-bold text-red-800">{data.brideName}</h3>
               </div>
 
               <div className="text-center mb-6 space-y-3 mb-6">
@@ -177,7 +180,7 @@ function WeddingWebsite() {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0">
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src="/api/placeholder/600/400" alt="Couple" className="w-full" />
+                <img src={data.coupleImg} alt="Couple" className="w-full" />
               </div>
             </div>
             <div className="md:w-1/2 md:pl-10">
@@ -235,25 +238,9 @@ function WeddingWebsite() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">Our Gallery</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="overflow-hidden rounded-lg shadow-lg transform transition hover:scale-105">
-                <img
-                  src={`/api/placeholder/${400 + i * 10}/${300 + i * 5}`}
-                  alt={`Gallery image ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* <Rsvp/> */}
+
+      {data?.gallary && <Gallery gallary={data.gallary} />}
 
       {/* Countdown Section */}
       <section className="py-16 bg-red-50">
@@ -262,18 +249,7 @@ function WeddingWebsite() {
           <p className="text-xl text-gray-700 mb-6">Sundariya Hotel, Jodhpur M.P.</p>
           <p className="text-lg text-gray-600 mb-10">9th October, 2022 • 07:00 PM</p>
 
-          {/* Google Calendar Button */}
-          <div className="w-full h-15 m-4 rounded-lg overflow-hidden">
-            <a
-              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Sachin+%26+Yashi+Wedding&dates=20221009T133000Z/20221009T173000Z&details=Join+us+at+Sundariya+Hotel,+Jodhpur.&location=Sundariya+Hotel,+Jodhpur+M.P.&sf=true&output=xml"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="bg-red-700 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
-                Save the Date
-              </button>
-            </a>
-          </div>
+          <GoogleCalender/>
 
           {/* Embedded Google Map */}
           <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
@@ -292,14 +268,7 @@ function WeddingWebsite() {
 
       </section>
 
-
-      {/* Footer */}
-      <footer className="bg-red-900 text-white py-6">
-        <div className="container mx-auto px-4 text-center">
-          <p className="mb-4">Sachin & Yashi</p>
-          <p className="text-sm text-red-200">© 2022 - With love and blessings</p>
-        </div>
-      </footer>
+      <Footer couple_name = {data.coupleName}/>
 
     </div>
   );
