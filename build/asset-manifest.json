@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Wedding_Invitation/static/css/main.5120b928.css",
+    "main.js": "/Wedding_Invitation/static/js/main.d0b7b155.js",
+    "static/js/453.770c9077.chunk.js": "/Wedding_Invitation/static/js/453.770c9077.chunk.js",
+    "static/media/FloralOne.woff": "/Wedding_Invitation/static/media/FloralOne.62381d8d7a68ba7502b5.woff",
+    "static/media/FloralOne.woff2": "/Wedding_Invitation/static/media/FloralOne.ade6f5ce9c404a50f6e1.woff2",
+    "index.html": "/Wedding_Invitation/index.html",
+    "main.5120b928.css.map": "/Wedding_Invitation/static/css/main.5120b928.css.map",
+    "main.d0b7b155.js.map": "/Wedding_Invitation/static/js/main.d0b7b155.js.map",
+    "453.770c9077.chunk.js.map": "/Wedding_Invitation/static/js/453.770c9077.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5120b928.css",
+    "static/js/main.d0b7b155.js"
+  ]
+}
