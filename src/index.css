@@ -14,3 +14,17 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@font-face {
+  font-family: 'FloralOne';
+  src: url('../public/fonts/FloralOne.woff2') format('woff2'),
+       url('../public/fonts/FloralOne.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.floral-text {
+  font-family: 'FloralOne', sans-serif;
+}

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function WeddingWebsite() {
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -11,61 +11,327 @@ function WeddingWebsite() {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
+
   return (
     <div className="font-serif">
-      <nav className={`fixed w-full transition-all duration-300 z-50 ${isScrolled ? 'bg-red-800 shadow-lg' : 'bg-transparent'}`}>
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="text-white font-bold text-xl md:text-2xl">Sachin & Yashi</div>
-          <div className="hidden md:flex space-x-6">
-            <a href="#home" className="text-white hover:text-red-200">Home</a>
-            <a href="#story" className="text-white hover:text-red-200">Our Story</a>
-            <a href="#events" className="text-white hover:text-red-200">Events</a>
-            <a href="#gallery" className="text-white hover:text-red-200">Gallery</a>
-            <a href="#rsvp" className="text-white hover:text-red-200">RSVP</a>
-          </div>
-          <button className="md:hidden text-white">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+      {/* Centered Logo/Image at top */}
 
-      <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-red-800 to-red-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-30" style={{backgroundImage: 'url("https://picsum.photos/1200/800")'}}></div>
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div key={i} 
-                className="absolute rounded-full bg-red-500 opacity-20" 
-                style={{
-                  width: `${Math.random() * 100 + 20}px`, 
-                  height: `${Math.random() * 100 + 20}px`,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}>
+
+      <section
+  id="home"
+  className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-yellow-800 to-yellow-900 relative overflow-hidden font-serif"
+>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center opacity-50"
+    style={{
+      backgroundImage:
+        'url("https://i.postimg.cc/YSCrWN77/Chat-GPT-Image-Apr-18-2025-02-51-08-PM.png")',
+    }}
+  ></div>
+
+  {/* Logo at Top */}
+  <div className="absolute top-3 z-10">
+    <img
+      src="https://i.postimg.cc/ZYxwfXyJ/Chat-GPT-Image-Apr-18-2025-03-34-47-PM.png"
+      alt="Ganpati Logo"
+      className="h-20 md:h-26 object-contain transition-all duration-300"
+    />
+  </div>
+
+  {/* Text Content */}
+  <div className="flex flex-col justify-center items-center text-center relative z-10 h-full transform translate-y-20">
+  <h1 className="floral-text text-3xl md:text-4xl font-bold text-white mb-4">
+    Sachin 💖 Yashi
+  </h1>
+</div>
+
+</section>
+
+
+      {/* Couple Information Section */}
+      <section className="py-16 bg-red-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">About The Couple</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Groom Information */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="text-center mb-6">
+                <img
+                  src="https://picsum.photos/400/400"
+                  alt="Sachin"
+                  className="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-red-700"
+                />
+                <h3 className="text-2xl font-bold text-red-800">Sachin Kumar</h3>
+                <p className="text-gray-600 italic">The Groom</p>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                <p className="text-gray-700"><span className="font-semibold">Parents:</span> Mr. & Mrs. Sharma</p>
+                <p className="text-gray-700"><span className="font-semibold">Education:</span> MBA from Delhi University</p>
+                <p className="text-gray-700"><span className="font-semibold">Profession:</span> Software Engineer</p>
+              </div>
+
+              <div className="flex justify-center space-x-4">
+                <a href="mailto:sachin@example.com" className="text-red-800 hover:text-red-600">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                  </svg>
+                </a>
+                <a href="https://instagram.com/sachin" target="_blank" rel="noopener noreferrer" className="text-red-800 hover:text-red-600">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  </svg>
+                </a>
+                <a href="https://facebook.com/sachin" target="_blank" rel="noopener noreferrer" className="text-red-800 hover:text-red-600">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+              </div>
             </div>
-          ))}
-        </div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="bg-black bg-opacity-20 p-8 rounded-lg backdrop-blur-sm max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Sachin & Yashi</h1>
-            <p className="text-xl md:text-2xl text-red-100 mb-6">9th October, 2022</p>
-            <p className="text-lg md:text-xl text-white mb-8">Sundariya Hotel, Jodhpur M.P.</p>
-            <p className="text-md md:text-lg text-red-100 mb-6">Time • 07:00pm</p>
-            <div className="flex justify-center">
-              <button className="bg-red-700 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
-                View Invitation
-              </button>
+
+            {/* Bride Information */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <div className="text-center mb-6">
+                <img
+                  src="https://picsum.photos/401/401"
+                  alt="Yashi"
+                  className="w-40 h-40 object-cover rounded-full mx-auto mb-4 border-4 border-red-700"
+                />
+                <h3 className="text-2xl font-bold text-red-800">Yashi Gupta</h3>
+                <p className="text-gray-600 italic">The Bride</p>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                <p className="text-gray-700"><span className="font-semibold">Parents:</span> Mr. & Mrs. Gupta</p>
+                <p className="text-gray-700"><span className="font-semibold">Education:</span> MSc in Computer Science</p>
+                <p className="text-gray-700"><span className="font-semibold">Profession:</span> UX Designer</p>
+              </div>
+
+              <div className="flex justify-center space-x-4">
+                <a href="mailto:yashi@example.com" className="text-red-800 hover:text-red-600">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                  </svg>
+                </a>
+                <a href="https://instagram.com/yashi" target="_blank" rel="noopener noreferrer" className="text-red-800 hover:text-red-600">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  </svg>
+                </a>
+                <a href="https://facebook.com/yashi" target="_blank" rel="noopener noreferrer" className="text-red-800 hover:text-red-600">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Our Story Section */}
+      <section id="story" className="py-16 bg-red-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">Our Story</h2>
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2 mb-8 md:mb-0">
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img src="/api/placeholder/600/400" alt="Couple" className="w-full" />
+              </div>
+            </div>
+            <div className="md:w-1/2 md:pl-10">
+              <h3 className="text-2xl font-semibold text-red-700 mb-4">How We Met</h3>
+              <p className="text-gray-700 mb-6">
+                Our journey began with a chance encounter that blossomed into love.
+                Through every moment spent together, our bond grew stronger and deeper.
+              </p>
+              <h3 className="text-2xl font-semibold text-red-700 mb-4">The Proposal</h3>
+              <p className="text-gray-700">
+                Under a canopy of stars, with hearts full of dreams for our future,
+                we promised to walk through life hand in hand, forever.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section id="events" className="py-16 bg-red-800 text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Wedding Events</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-red-900 p-6 rounded-lg shadow-lg text-center">
+              <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Mehndi Ceremony</h3>
+              <p className="text-red-200 mb-3">8th October, 2022</p>
+              <p className="text-red-200">5:00 PM</p>
+            </div>
+            <div className="bg-red-900 p-6 rounded-lg shadow-lg text-center">
+              <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Wedding Ceremony</h3>
+              <p className="text-red-200 mb-3">9th October, 2022</p>
+              <p className="text-red-200">7:00 PM</p>
+            </div>
+            <div className="bg-red-900 p-6 rounded-lg shadow-lg text-center">
+              <div className="w-16 h-16 bg-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold mb-2">Reception</h3>
+              <p className="text-red-200 mb-3">10th October, 2022</p>
+              <p className="text-red-200">6:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">Our Gallery</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="overflow-hidden rounded-lg shadow-lg transform transition hover:scale-105">
+                <img
+                  src={`/api/placeholder/${400 + i * 10}/${300 + i * 5}`}
+                  alt={`Gallery image ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RSVP Section */}
+      <section id="rsvp" className="py-16 bg-gradient-to-b from-red-800 to-red-900 text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">RSVP</h2>
+          <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
+            <form className="space-y-4">
+              <div>
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+                  Full Name
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="name"
+                  type="text"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  type="email"
+                  placeholder="Your Email"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="attending">
+                  Will you attend?
+                </label>
+                <select
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="attending"
+                >
+                  <option>Yes, I will attend</option>
+                  <option>Sorry, I cannot attend</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="guests">
+                  Number of Guests
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="guests"
+                  type="number"
+                  min="0"
+                  placeholder="0"
+                />
+              </div>
+              <div className="flex items-center justify-center">
+                <button
+                  className="bg-red-700 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                  type="button"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Countdown Section */}
+      <section className="py-16 bg-red-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-red-800 mb-8">Join Us On Our Special Day</h2>
+          <p className="text-xl text-gray-700 mb-6">Sundariya Hotel, Jodhpur M.P.</p>
+          <p className="text-lg text-gray-600 mb-10">9th October, 2022 • 07:00 PM</p>
+
+          {/* Google Calendar Button */}
+          <div className="w-full h-15 m-4 rounded-lg overflow-hidden">
+            <a
+              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Sachin+%26+Yashi+Wedding&dates=20221009T133000Z/20221009T173000Z&details=Join+us+at+Sundariya+Hotel,+Jodhpur.&location=Sundariya+Hotel,+Jodhpur+M.P.&sf=true&output=xml"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-red-700 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition hover:scale-105">
+                Save to Google Calendar
+              </button>
+            </a>
+          </div>
+
+          {/* Embedded Google Map */}
+          <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              title="Sundariya Hotel Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.063820804651!2d74.77953347385547!3d20.990078689108767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bded191554ca973%3A0x8358b972ac62f891!2sPatil&#39;s%20Farm!5e0!3m2!1sen!2sin!4v1744972369752!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+
+      </section>
+
+
+      {/* Footer */}
+      <footer className="bg-red-900 text-white py-6">
+        <div className="container mx-auto px-4 text-center">
+          <p className="mb-4">Sachin & Yashi</p>
+          <p className="text-sm text-red-200">© 2022 - With love and blessings</p>
+        </div>
+      </footer>
+
     </div>
   );
 }
