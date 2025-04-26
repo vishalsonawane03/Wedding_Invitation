@@ -5,6 +5,7 @@ const Footer = ({couple_name}) => {
         <p className="mb-4">{couple_name}</p>
         <p className="text-sm text-red-200">© 2025 - With love and blessings</p>
       </div>
+      
     </footer>
     )
 };

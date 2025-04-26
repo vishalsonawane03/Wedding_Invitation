@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Gallery from './Gallary';
 import GoogleCalender from './GoogleCalender';
 import LoadingSpinner from './LoadingSpinner';
+import Location from './Location';
 
 function WeddingWebsite() {
 
@@ -88,9 +89,9 @@ function WeddingWebsite() {
 
               --------We request your gracious presence with the family on the auspicious occasion of the Wedding of 
             /> */}
-            <h1 className="text-2xl tracking-wide uppercase text-gray-800 mb-1">BE OUR GUEST</h1>    
-            <h3 className="text-xl tracking-wide uppercase text-gray-800 mb-0">WE EXPECT YOUR PRESENCE AT</h3>
-            <h3 className="text-xl tracking-wide uppercase text-gray-800">OUR WEDDING</h3>
+            <h1 className="text-3xl md:text-4xl font-bold text-red-800 mb-8">You're Invited to Our Special Day</h1>
+            <h3 className="text-base tracking-wide uppercase text-gray-800 mb-0">Let's make memories together!</h3>
+            {/* <h3 className="text-xl tracking-wide uppercase text-gray-800">OUR WEDDING</h3> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -174,7 +175,7 @@ function WeddingWebsite() {
       </section>
 
       {/* Our Story Section */}
-      <section id="story" className="py-16 bg-red-50">
+      <section id="story" className="py-2 bg-red-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-red-800 mb-12">Our Story</h2>
           <div className="flex flex-col md:flex-row items-center">
@@ -243,32 +244,18 @@ function WeddingWebsite() {
       {data?.gallary && <Gallery gallary={data.gallary} />}
 
       {/* Countdown Section */}
-      <section className="py-16 bg-red-50">
+      <section className="py-2 bg-red-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-red-800 mb-8">Join Us On Our Special Day</h2>
-          <p className="text-xl text-gray-700 mb-6">Sundariya Hotel, Jodhpur M.P.</p>
-          <p className="text-lg text-gray-600 mb-10">9th October, 2022 • 07:00 PM</p>
 
           <GoogleCalender/>
-
-          {/* Embedded Google Map */}
-          <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
-            <iframe
-              title="Sundariya Hotel Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.063820804651!2d74.77953347385547!3d20.990078689108767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bded191554ca973%3A0x8358b972ac62f891!2sPatil&#39;s%20Farm!5e0!3m2!1sen!2sin!4v1744972369752!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+          <Location/>
+          
+          
         </div>
-
-
       </section>
 
       <Footer couple_name = {data.coupleName}/>
+
 
     </div>
   );
